@@ -507,7 +507,7 @@ main { flex: 1; }
 .footer-links a { color: var(--ink-soft); text-decoration: none; }
 .footer-links a:hover { color: var(--ink); }
 
-.erabbit-mark { display: block; width: 10px; margin: 0 0 0 auto; line-height: 0; }
+.erabbit-mark { display: block; width: 10px; margin: 0 0 0 auto; line-height: 0; cursor: pointer; }
 .erabbit-mark img { display: block; width: 10px; height: 10px; }
 
 /* ---------- simple pages (about/privacy/terms/404) ---------- */
