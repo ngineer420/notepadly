@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>
+(function () {
+  try {
+    var t = localStorage.getItem("notepadly-theme");
+    if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+  } catch (e) { /* ignore */ }
+})();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — Notepadly</title>
+<meta name="description" content="Notepadly's privacy policy: your notes are stored only in your browser's local storage and are never sent to any server.">
+<link rel="canonical" href="https://notepadly.app/privacy.html">
+<meta name="theme-color" content="#f1e8d3">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/css/styles.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7560786263587509" crossorigin="anonymous"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="/" aria-label="Notepadly home">
+      <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+        <path class="page" d="M14 6h28l8 8v44a2 2 0 0 1-2 2H14a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z" stroke-width="2"/>
+        <path class="fold" d="M42 6l8 8h-6a2 2 0 0 1-2-2z" stroke-width="1.5"/>
+        <rect x="20" y="27" width="24" height="3" rx="1.5"/>
+        <rect x="20" y="35" width="24" height="3" rx="1.5"/>
+        <rect class="line-active" x="20" y="43" width="15" height="3" rx="1.5"/>
+      </svg>
+      notepadly
+    </a>
+    <nav class="site-nav" aria-label="Site">
+      <a href="/">Home</a>
+      <a href="/about.html">About</a>
+      <a href="/privacy.html" aria-current="page">Privacy</a>
+      <a href="/terms.html">Terms</a>
+    </nav>
+    <button id="theme-toggle" class="icon-btn" type="button" aria-label="Toggle dark/light theme" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<main id="main">
+  <div class="page-hero">
+    <h1>Privacy Policy</h1>
+    <p class="updated">Last updated: July 2026</p>
+  </div>
+  <section class="container-narrow" style="padding-top:0;">
+    <p>Notepadly ("we", "the site") is a free, browser-based notepad. This page explains, plainly, what data is and isn't collected when you use it.</p>
+
+    <h2>Your notes never leave your browser</h2>
+    <p>Notepadly has no server, no database, and no account system. Everything you type is held in the page's memory and written to your browser's <code>localStorage</code> — a storage area the browser sets aside for this site, on this device only. Nobody, including whoever runs this site, can read, receive, or access what you write. There is no network request that carries your note content anywhere, at any point.</p>
+
+    <h2>What that means in practice</h2>
+    <ul>
+      <li>Your notes are not backed up by us. If you clear your browser's site data, use a private/incognito window, or switch browsers or devices, your notes will not be there. Use the <strong>.txt</strong> / <strong>.md</strong> download buttons to keep a copy elsewhere.</li>
+      <li>We don't know how many notes you have, what's in them, or how often you use the site.</li>
+      <li>There is nothing to delete on request, because we never had a copy to begin with.</li>
+    </ul>
+
+    <h2>Cookies and advertising</h2>
+    <p>This site may display advertisements served by third-party ad networks, such as Google AdSense. These networks may use cookies or similar technologies to serve ads based on your prior visits to this or other websites. This is separate from, and has no access to, the contents of your notes, which stay in local storage and are never exposed to any script that isn't part of this page's own editor.</p>
+    <p>You can opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener">Google Ads Settings</a>, or generally at <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener">aboutads.info</a>.</p>
+
+    <h2>Analytics</h2>
+    <p>We may use privacy-respecting analytics to understand aggregate traffic (for example, page views or approximate location by country). This data is never linked to note content, which is never transmitted anywhere.</p>
+
+    <h2>Changes to this policy</h2>
+    <p>If this policy changes, the updated version will be posted on this page with a new "last updated" date.</p>
+
+    <h2>Contact</h2>
+    <p>Questions about this policy can be sent to the site owner via the contact link in the footer.</p>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>© <span id="year"></span> Notepadly</div>
+    <div class="footer-links">
+      <a href="/about.html">About</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+    </div>
+  </div>
+</footer>
+
+<a href="https://erabb.it" class="erabbit-mark" aria-label="erabb.it"><img src="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐇</text></svg>" width="10" height="10" alt=""></a>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+var tb = document.getElementById("theme-toggle");
+tb.addEventListener("click", function () {
+  var current = document.documentElement.getAttribute("data-theme");
+  if (!current) current = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  var next = current === "dark" ? "light" : "dark";
+  document.documentElement.setAttribute("data-theme", next);
+  try { localStorage.setItem("notepadly-theme", next); } catch (e) {}
+});
+</script>
+</body>
+</html>

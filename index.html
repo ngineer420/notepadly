@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>
+(function () {
+  try {
+    var t = localStorage.getItem("notepadly-theme");
+    if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+  } catch (e) { /* ignore */ }
+})();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Notepadly — Distraction-Free Online Notepad</title>
+<meta name="description" content="A distraction-free online notepad that autosaves to your browser as you type. Switch to Markdown for a live preview, keep multiple notes, and download as .txt or .md. Nothing is ever uploaded — it all stays on your device and works offline.">
+<link rel="canonical" href="https://notepadly.app/">
+<meta name="theme-color" content="#f1e8d3">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Notepadly — Distraction-Free Online Notepad">
+<meta property="og:description" content="A distraction-free online notepad that autosaves to your browser as you type. Markdown mode, multiple notes, .txt/.md export — nothing ever leaves your device.">
+<meta property="og:url" content="https://notepadly.app/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Notepadly — Distraction-Free Online Notepad">
+<meta name="twitter:description" content="A distraction-free online notepad that autosaves to your browser as you type. Markdown mode, multiple notes, .txt/.md export — nothing ever leaves your device.">
+
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/css/styles.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Notepadly",
+  "url": "https://notepadly.app/",
+  "applicationCategory": "ProductivityApplication",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "description": "A distraction-free, 100% client-side online notepad that autosaves to localStorage as you type, with a Markdown mode with live preview, multiple named notes, and .txt/.md export. Nothing is ever uploaded to a server."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does Notepadly save my notes automatically?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every change you make is written to your browser's localStorage within a fraction of a second, and again immediately when you switch tabs, switch notes, or close the page. Reopen Notepadly later — even offline — and your notes are exactly as you left them." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is anything I type sent to a server?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. Notepadly has no backend, no account, and no sync service. All of the code runs in your browser, and your notes are stored only in that browser's local storage on your device. Nobody, including us, can read them." }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if I clear my browser data?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Local storage is tied to your browser profile on this device, so clearing site data, browsing in a private/incognito window, or switching browsers or devices will not carry your notes over. Download anything important as .txt or .md if you need a backup or want to move it elsewhere." }
+    },
+    {
+      "@type": "Question",
+      "name": "How does Markdown mode work?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Turn on Markdown from the toolbar and a live preview appears alongside your text. It supports headings, bold and italic, links, inline code and code blocks, blockquotes, lists, and horizontal rules — rendered entirely by a small built-in renderer, with no external library or network request involved." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I keep more than one note?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Use the + tab to start a new note, double-click any tab to rename it, and click the × to delete one. Each note remembers its own content and whether Markdown mode is on." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Notepadly work offline?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Once the page has loaded once, it keeps working without a connection — there are no external scripts, fonts, or services it depends on at runtime." }
+    }
+  ]
+}
+</script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7560786263587509" crossorigin="anonymous"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="/" aria-label="Notepadly home">
+      <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+        <path class="page" d="M14 6h28l8 8v44a2 2 0 0 1-2 2H14a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z" stroke-width="2"/>
+        <path class="fold" d="M42 6l8 8h-6a2 2 0 0 1-2-2z" stroke-width="1.5"/>
+        <rect x="20" y="27" width="24" height="3" rx="1.5"/>
+        <rect x="20" y="35" width="24" height="3" rx="1.5"/>
+        <rect class="line-active" x="20" y="43" width="15" height="3" rx="1.5"/>
+      </svg>
+      notepadly
+    </a>
+    <nav class="site-nav" aria-label="Site">
+      <a href="/" aria-current="page">Home</a>
+      <a href="/about.html">About</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+    </nav>
+    <button id="theme-toggle" class="icon-btn" type="button" aria-label="Toggle dark/light theme" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<main id="main">
+  <div class="editor-shell">
+    <div class="editor-intro">
+      <h1>A quiet place to write</h1>
+      <p>Distraction-free, autosaves as you type, and never leaves your browser.</p>
+    </div>
+
+    <div class="note-tabs" id="note-tabs" aria-label="Your notes">
+      <button type="button" class="note-tab-add" id="note-tab-add" aria-label="New note" title="New note">+</button>
+    </div>
+
+    <div class="sheet">
+      <div class="toolbar">
+        <div class="toolbar-group">
+          <button type="button" class="tool-btn" id="markdown-toggle" aria-pressed="false" title="Toggle Markdown mode with live preview">Markdown</button>
+          <span class="toolbar-sep" aria-hidden="true"></span>
+          <button type="button" class="tool-btn" id="download-txt" title="Download this note as .txt">⤓ .txt</button>
+          <button type="button" class="tool-btn" id="download-md" title="Download this note as .md">⤓ .md</button>
+        </div>
+        <div class="toolbar-group">
+          <button type="button" class="tool-btn danger" id="clear-btn" title="Clear this note">Clear</button>
+        </div>
+      </div>
+
+      <div class="status-bar">
+        <span class="status-counts">
+          <span id="word-count">0 words</span><span id="char-count">0 characters</span>
+        </span>
+        <span class="autosave" id="autosave-status">
+          <span class="ink-dot" id="autosave-dot" aria-hidden="true"></span>
+          <span id="autosave-text">Saved</span>
+        </span>
+      </div>
+
+      <div class="editor-body" id="editor-body">
+        <textarea id="editor" spellcheck="true" aria-label="Note content" placeholder="Start typing…"></textarea>
+        <div class="preview-pane" id="preview" aria-label="Markdown preview" aria-live="polite"></div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="section-divider">
+
+  <section class="container-narrow">
+    <h2>What is Notepadly?</h2>
+    <p>Notepadly is an online notepad for writing that doesn't ask anything of you first — no sign-up, no folder to pick, no "create new document" dialog. Open the page and there's a cursor waiting. It's built for the kind of writing that needs a blank page more than it needs features: a draft, a list, notes from a call, a paragraph you don't want to lose.</p>
+    <p>The whole thing runs as a single page in your browser. There's no server behind it, which means there's <strong>nothing to sign into, nothing to sync, and nothing that can go down</strong>. Everything you see — the editor, the word count, the Markdown renderer — is plain HTML, CSS, and JavaScript shipped once and then left alone.</p>
+
+    <h2>How autosave works</h2>
+    <p>Every keystroke updates an in-memory copy of your note, and a moment later that copy is written to your browser's <code>localStorage</code> — a small storage space the browser sets aside per website, entirely separate from any server. Notepadly also flushes a save immediately when you switch notes, switch browser tabs, or close the page, so a save is never left sitting in a debounce window. The status bar's small ink dot pulses each time a save lands, so you can watch it happen rather than take it on faith.</p>
+    <p>Because the note lives in your browser, it's still there the next time you open Notepadly on the same browser and device — even without a connection. It won't follow you to a different browser or device, and clearing your browser's site data will clear it too, so treat the download buttons as your backup, not local storage.</p>
+
+    <h2>Markdown mode, with a live preview</h2>
+    <p>Flip on Markdown from the toolbar and a preview pane opens beside your text, re-rendering on every change. It understands the everyday Markdown syntax — <code># headings</code>, <code>**bold**</code>, <code>*italic*</code>, <code>`inline code`</code>, fenced code blocks, <code>&gt; blockquotes</code>, lists, links, and horizontal rules — and it does the rendering itself, in about a hundred lines of vanilla JavaScript shipped with the page. No CDN, no third-party library, nothing fetched at render time.</p>
+
+    <h2>Privacy, by construction</h2>
+    <p>Notepadly can't see what you write, because there's no channel for it to travel through. There's no analytics tracking keystrokes, no "sync to cloud" toggle, and no account to leak. Your notes exist in exactly one place: this browser, on this device, in <code>localStorage</code>. The <a href="/privacy.html">privacy policy</a> spells this out in full, including what a third-party ad network can and can't see.</p>
+
+    <div class="feature-grid">
+      <div class="feature-card"><h3>Autosave</h3><p>Writes to your browser on every change — nothing to click, nothing to lose.</p></div>
+      <div class="feature-card"><h3>Markdown + live preview</h3><p>A tiny built-in renderer, no external library.</p></div>
+      <div class="feature-card"><h3>Multiple notes</h3><p>Named tabs, kept side by side, each remembering its own mode.</p></div>
+      <div class="feature-card"><h3>Export anytime</h3><p>Download the current note as plain <code>.txt</code> or <code>.md</code>.</p></div>
+      <div class="feature-card"><h3>Works offline</h3><p>No server, no accounts, no network dependency once loaded.</p></div>
+      <div class="feature-card"><h3>Light &amp; dark</h3><p>A warm paper theme and a soft dark theme, remembered per device.</p></div>
+    </div>
+
+    <h2>Frequently asked questions</h2>
+    <div class="faq-item">
+      <h3>Does Notepadly save my notes automatically?</h3>
+      <p>Yes. Every change is written to your browser's local storage within a fraction of a second, and again immediately when you switch tabs, switch notes, or close the page. Come back later — even offline — and your notes are exactly as you left them.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Is anything I type sent to a server?</h3>
+      <p>No. There is no backend, no account, and no sync service. Everything runs in your browser, and your notes stay in that browser's local storage on your device.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What happens if I clear my browser data?</h3>
+      <p>Local storage is tied to your browser profile on this device, so clearing site data, using a private/incognito window, or switching browsers or devices won't carry your notes over. Download anything important as <code>.txt</code> or <code>.md</code> if you need a backup.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Can I keep more than one note?</h3>
+      <p>Yes — use the <code>+</code> tab to start a new one, double-click any tab to rename it, and use the <code>×</code> to delete one. Each note remembers its own content and whether Markdown mode is on.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Does it work offline?</h3>
+      <p>Once the page has loaded, yes — there's nothing external it depends on at runtime, no fonts, scripts, or services to fetch.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>© <span id="year"></span> Notepadly</div>
+    <div class="footer-links">
+      <a href="/about.html">About</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+    </div>
+  </div>
+</footer>
+
+<a href="https://erabb.it" class="erabbit-mark" aria-label="erabb.it"><img src="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐇</text></svg>" width="10" height="10" alt=""></a>
+
+<script src="/assets/js/markdown.js"></script>
+<script src="/assets/js/app.js"></script>
+</body>
+</html>

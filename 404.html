@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>
+(function () {
+  try {
+    var t = localStorage.getItem("notepadly-theme");
+    if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+  } catch (e) { /* ignore */ }
+})();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>404 — Notepadly</title>
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+<body>
+<main class="container-narrow" style="text-align:center;">
+  <div style="font-size:48px;line-height:1;margin-bottom:8px;">📝</div>
+  <h1>Page not found</h1>
+  <p>This page has been torn out of the notebook.</p>
+  <p><a href="/">Back to your notes</a></p>
+</main>
+<a href="https://erabb.it" class="erabbit-mark" aria-label="erabb.it"><img src="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐇</text></svg>" width="10" height="10" alt=""></a>
+</body>
+</html>
