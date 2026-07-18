@@ -175,7 +175,7 @@ h1, h2, h3 { font-family: var(--font-editor); color: var(--ink); line-height: 1.
   width: 34px;
   height: 34px;
   border-radius: var(--radius-sm);
-  cursor: pointer;
+  cursor: default;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -238,7 +238,7 @@ main { flex: 1; }
   color: var(--ink-soft);
   background: none;
   border: none;
-  cursor: pointer;
+  cursor: default;
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 120px;
@@ -264,7 +264,7 @@ main { flex: 1; }
   border: none;
   background: none;
   color: var(--ink-faint);
-  cursor: pointer;
+  cursor: default;
   font-size: 13px;
   line-height: 1;
   padding: 4px 6px;
@@ -277,7 +277,7 @@ main { flex: 1; }
   color: var(--ink-faint);
   border-radius: 8px 8px 0 0;
   padding: 7px 12px 8px;
-  cursor: pointer;
+  cursor: default;
   font-size: 15px;
   line-height: 1;
 }
@@ -311,7 +311,7 @@ main { flex: 1; }
   color: var(--ink-soft);
   padding: 6px 10px;
   border-radius: var(--radius-sm);
-  cursor: pointer;
+  cursor: default;
   font-size: 13px;
   display: inline-flex;
   align-items: center;
@@ -507,7 +507,7 @@ main { flex: 1; }
 .footer-links a { color: var(--ink-soft); text-decoration: none; }
 .footer-links a:hover { color: var(--ink); }
 
-.erabbit-mark { display: block; width: 10px; margin: 0 0 0 auto; line-height: 0; cursor: pointer; }
+.erabbit-mark { display: block; width: 10px; margin: 0 0 0 auto; line-height: 0; cursor: default; }
 .erabbit-mark img { display: block; width: 10px; height: 10px; }
 
 /* ---------- simple pages (about/privacy/terms/404) ---------- */
