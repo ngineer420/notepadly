@@ -118,13 +118,24 @@ h1, h2, h3 { font-family: var(--font-editor); color: var(--ink); line-height: 1.
 .skip-link:focus { left: 0; }
 
 /* ---------- header ---------- */
+/* Brand and the theme toggle, nothing else. One tool means no peers to list,
+   so this site is the portfolio pattern's other half: no rail, no sheet, no
+   toolbar element at all (ngineer420.github.io#13). Home is the brand, and
+   About, Privacy and Terms live in the footer, which already carried them —
+   two of the four header slots were spending themselves twice.
+
+   Not sticky, so nothing in the chrome can overlay an AdSense anchor unit,
+   and a fixed height so the header is the same 54px on every page at every
+   width. It used to grow to 99px below 500px, where flex-wrap broke the four
+   links onto a second row beside a one-line wordmark. */
 .site-header {
   border-bottom: 1px solid var(--rule);
 }
 .header-inner {
   max-width: var(--maxw);
   margin: 0 auto;
-  padding: 14px 20px;
+  padding: 0 20px;
+  height: 53px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -147,25 +158,6 @@ h1, h2, h3 { font-family: var(--font-editor); color: var(--ink); line-height: 1.
 .brand-mark path.fold { fill: var(--rule); stroke: var(--ink); }
 .brand-mark rect { fill: var(--ink-faint); }
 .brand-mark rect.line-active { fill: var(--brass); }
-
-.site-nav {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  flex-wrap: wrap;
-}
-.site-nav a {
-  font-size: 14px;
-  color: var(--ink-soft);
-  text-decoration: none;
-  padding: 6px 10px;
-  border-radius: var(--radius-sm);
-}
-.site-nav a:hover { color: var(--ink); background: var(--paper-raised); }
-.site-nav a[aria-current="page"] {
-  color: var(--ink);
-  font-weight: 600;
-}
 
 .icon-btn {
   font-family: var(--font-ui);
@@ -494,7 +486,7 @@ main { flex: 1; }
 .footer-inner {
   max-width: var(--maxw);
   margin: 0 auto;
-  padding: 20px;
+  padding: 4px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -504,10 +496,21 @@ main { flex: 1; }
   color: var(--ink-faint);
 }
 .footer-links { display: flex; gap: 14px; }
-.footer-links a { color: var(--ink-soft); text-decoration: none; }
+/* These three are now the only route to About, Privacy and Terms, so they get
+   a real tap target. They were 18-19.5px tall, which the mobile audit flagged
+   on every render of this site. */
+.footer-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--ink-soft);
+  text-decoration: none;
+}
 .footer-links a:hover { color: var(--ink); }
 
-.erabbit-mark { display: block; width: 10px; margin: 0 0 0 auto; line-height: 0; }
+/* Last element on the page, flush to the corner, and not a link that invites
+   a click — the pointer stays an arrow. */
+.erabbit-mark { display: block; width: 10px; margin: 0 0 0 auto; line-height: 0; cursor: default; }
 .erabbit-mark img { display: block; width: 10px; height: 10px; }
 
 /* ---------- simple pages (about/privacy/terms/404) ---------- */
