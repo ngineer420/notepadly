@@ -1,4 +1,4 @@
-/* notepadly.app — editor logic.
+/* blanknotepad.com — editor logic.
  * Everything here reads/writes localStorage only. Nothing is ever sent to
  * a server — there is no server. Autosave = a write to localStorage on
  * every change (debounced ~150ms so a fast paste doesn't thrash disk I/O),
