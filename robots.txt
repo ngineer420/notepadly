@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://notepadly.app/sitemap.xml
+Sitemap: https://blanknotepad.com/sitemap.xml

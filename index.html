@@ -11,17 +11,17 @@
 })();
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Notepadly — Distraction-Free Online Notepad</title>
+<title>Blank Notepad — Distraction-Free Online Notepad</title>
 <meta name="description" content="A distraction-free online notepad that autosaves to your browser as you type. Switch to Markdown for a live preview, keep multiple notes, and download as .txt or .md. Nothing is ever uploaded — it all stays on your device and works offline.">
-<link rel="canonical" href="https://notepadly.app/">
+<link rel="canonical" href="https://blanknotepad.com/">
 <meta name="theme-color" content="#f1e8d3">
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="Notepadly — Distraction-Free Online Notepad">
+<meta property="og:title" content="Blank Notepad — Distraction-Free Online Notepad">
 <meta property="og:description" content="A distraction-free online notepad that autosaves to your browser as you type. Markdown mode, multiple notes, .txt/.md export — nothing ever leaves your device.">
-<meta property="og:url" content="https://notepadly.app/">
+<meta property="og:url" content="https://blanknotepad.com/">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Notepadly — Distraction-Free Online Notepad">
+<meta name="twitter:title" content="Blank Notepad — Distraction-Free Online Notepad">
 <meta name="twitter:description" content="A distraction-free online notepad that autosaves to your browser as you type. Markdown mode, multiple notes, .txt/.md export — nothing ever leaves your device.">
 
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
@@ -31,8 +31,8 @@
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  "name": "Notepadly",
-  "url": "https://notepadly.app/",
+  "name": "Blank Notepad",
+  "url": "https://blanknotepad.com/",
   "applicationCategory": "ProductivityApplication",
   "operatingSystem": "Any",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
@@ -46,13 +46,13 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Does Notepadly save my notes automatically?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every change you make is written to your browser's localStorage within a fraction of a second, and again immediately when you switch tabs, switch notes, or close the page. Reopen Notepadly later — even offline — and your notes are exactly as you left them." }
+      "name": "Does Blank Notepad save my notes automatically?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every change you make is written to your browser's localStorage within a fraction of a second, and again immediately when you switch tabs, switch notes, or close the page. Reopen Blank Notepad later — even offline — and your notes are exactly as you left them." }
     },
     {
       "@type": "Question",
       "name": "Is anything I type sent to a server?",
-      "acceptedAnswer": { "@type": "Answer", "text": "No. Notepadly has no backend, no account, and no sync service. All of the code runs in your browser, and your notes are stored only in that browser's local storage on your device. Nobody, including us, can read them." }
+      "acceptedAnswer": { "@type": "Answer", "text": "No. Blank Notepad has no backend, no account, and no sync service. All of the code runs in your browser, and your notes are stored only in that browser's local storage on your device. Nobody, including us, can read them." }
     },
     {
       "@type": "Question",
@@ -71,7 +71,7 @@
     },
     {
       "@type": "Question",
-      "name": "Does Notepadly work offline?",
+      "name": "Does Blank Notepad work offline?",
       "acceptedAnswer": { "@type": "Answer", "text": "Once the page has loaded once, it keeps working without a connection — there are no external scripts, fonts, or services it depends on at runtime." }
     }
   ]
@@ -85,7 +85,7 @@
 
 <header class="site-header">
   <div class="header-inner">
-    <a class="brand" href="/" aria-label="Notepadly home">
+    <a class="brand" href="/" aria-label="Blank Notepad home">
       <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
         <path class="page" d="M14 6h28l8 8v44a2 2 0 0 1-2 2H14a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z" stroke-width="2"/>
         <path class="fold" d="M42 6l8 8h-6a2 2 0 0 1-2-2z" stroke-width="1.5"/>
@@ -93,7 +93,7 @@
         <rect x="20" y="35" width="24" height="3" rx="1.5"/>
         <rect class="line-active" x="20" y="43" width="15" height="3" rx="1.5"/>
       </svg>
-      notepadly
+      blank notepad
     </a>
     <button id="theme-toggle" class="icon-btn" type="button" aria-label="Toggle dark/light theme" title="Toggle theme">◐</button>
   </div>
@@ -145,19 +145,19 @@
   <hr class="section-divider">
 
   <section class="container-narrow">
-    <h2>What is Notepadly?</h2>
-    <p>Notepadly is an online notepad for writing that doesn't ask anything of you first — no sign-up, no folder to pick, no "create new document" dialog. Open the page and there's a cursor waiting. It's built for the kind of writing that needs a blank page more than it needs features: a draft, a list, notes from a call, a paragraph you don't want to lose.</p>
+    <h2>What is Blank Notepad?</h2>
+    <p>Blank Notepad is an online notepad for writing that doesn't ask anything of you first — no sign-up, no folder to pick, no "create new document" dialog. Open the page and there's a cursor waiting. It's built for the kind of writing that needs a blank page more than it needs features: a draft, a list, notes from a call, a paragraph you don't want to lose.</p>
     <p>The whole thing runs as a single page in your browser. There's no server behind it, which means there's <strong>nothing to sign into, nothing to sync, and nothing that can go down</strong>. Everything you see — the editor, the word count, the Markdown renderer — is plain HTML, CSS, and JavaScript shipped once and then left alone.</p>
 
     <h2>How autosave works</h2>
-    <p>Every keystroke updates an in-memory copy of your note, and a moment later that copy is written to your browser's <code>localStorage</code> — a small storage space the browser sets aside per website, entirely separate from any server. Notepadly also flushes a save immediately when you switch notes, switch browser tabs, or close the page, so a save is never left sitting in a debounce window. The status bar's small ink dot pulses each time a save lands, so you can watch it happen rather than take it on faith.</p>
-    <p>Because the note lives in your browser, it's still there the next time you open Notepadly on the same browser and device — even without a connection. It won't follow you to a different browser or device, and clearing your browser's site data will clear it too, so treat the download buttons as your backup, not local storage.</p>
+    <p>Every keystroke updates an in-memory copy of your note, and a moment later that copy is written to your browser's <code>localStorage</code> — a small storage space the browser sets aside per website, entirely separate from any server. Blank Notepad also flushes a save immediately when you switch notes, switch browser tabs, or close the page, so a save is never left sitting in a debounce window. The status bar's small ink dot pulses each time a save lands, so you can watch it happen rather than take it on faith.</p>
+    <p>Because the note lives in your browser, it's still there the next time you open Blank Notepad on the same browser and device — even without a connection. It won't follow you to a different browser or device, and clearing your browser's site data will clear it too, so treat the download buttons as your backup, not local storage.</p>
 
     <h2>Markdown mode, with a live preview</h2>
     <p>Flip on Markdown from the toolbar and a preview pane opens beside your text, re-rendering on every change. It understands the everyday Markdown syntax — <code># headings</code>, <code>**bold**</code>, <code>*italic*</code>, <code>`inline code`</code>, fenced code blocks, <code>&gt; blockquotes</code>, lists, links, and horizontal rules — and it does the rendering itself, in about a hundred lines of vanilla JavaScript shipped with the page. No CDN, no third-party library, nothing fetched at render time.</p>
 
     <h2>Privacy, by construction</h2>
-    <p>Notepadly can't see what you write, because there's no channel for it to travel through. There's no analytics tracking keystrokes, no "sync to cloud" toggle, and no account to leak. Your notes exist in exactly one place: this browser, on this device, in <code>localStorage</code>. The <a href="/privacy.html">privacy policy</a> spells this out in full, including what a third-party ad network can and can't see.</p>
+    <p>Blank Notepad can't see what you write, because there's no channel for it to travel through. There's no analytics tracking keystrokes, no "sync to cloud" toggle, and no account to leak. Your notes exist in exactly one place: this browser, on this device, in <code>localStorage</code>. The <a href="/privacy.html">privacy policy</a> spells this out in full, including what a third-party ad network can and can't see.</p>
 
     <div class="feature-grid">
       <div class="feature-card"><h3>Autosave</h3><p>Writes to your browser on every change — nothing to click, nothing to lose.</p></div>
@@ -170,7 +170,7 @@
 
     <h2>Frequently asked questions</h2>
     <div class="faq-item">
-      <h3>Does Notepadly save my notes automatically?</h3>
+      <h3>Does Blank Notepad save my notes automatically?</h3>
       <p>Yes. Every change is written to your browser's local storage within a fraction of a second, and again immediately when you switch tabs, switch notes, or close the page. Come back later — even offline — and your notes are exactly as you left them.</p>
     </div>
     <div class="faq-item">
@@ -194,7 +194,7 @@
 
 <footer class="site-footer">
   <div class="footer-inner">
-    <div>© <span id="year"></span> Notepadly</div>
+    <div>© <span id="year"></span> Blank Notepad</div>
     <div class="footer-links">
       <a href="/about.html">About</a>
       <a href="/privacy.html">Privacy</a>
