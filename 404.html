@@ -14,21 +14,110 @@
 <link rel="manifest" href="/manifest.webmanifest">
 <meta name="theme-color" content="#f1e8d3">
 <script defer src="/assets/js/register-sw.js"></script>
+<script defer src="/assets/js/nav.js"></script>
 <title>404 — Blank Notepad</title>
+<meta name="description" content="This page does not exist on Blank Notepad. Go back to the notepad, or use the toolbar to find another page.">
+<link rel="canonical" href="https://blanknotepad.com/404.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="404 — Blank Notepad">
+<meta property="og:description" content="This page does not exist on Blank Notepad. Go back to the notepad, or use the toolbar to find another page.">
+<meta property="og:url" content="https://blanknotepad.com/404.html">
 <meta property="og:image" content="https://blanknotepad.com/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="404 — Blank Notepad">
+<meta name="twitter:description" content="This page does not exist on Blank Notepad. Go back to the notepad, or use the toolbar to find another page.">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/assets/css/styles.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://blanknotepad.com/"},{"@type":"ListItem","position":2,"name":"Page not found","item":"https://blanknotepad.com/404.html"}]}</script>
 </head>
 <body>
-<main class="container-narrow" style="text-align:center;">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="/" aria-label="Blank Notepad home">
+      <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+        <path class="page" d="M14 6h28l8 8v44a2 2 0 0 1-2 2H14a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z" stroke-width="2"/>
+        <path class="fold" d="M42 6l8 8h-6a2 2 0 0 1-2-2z" stroke-width="1.5"/>
+        <rect x="20" y="27" width="24" height="3" rx="1.5"/>
+        <rect x="20" y="35" width="24" height="3" rx="1.5"/>
+        <rect class="line-active" x="20" y="43" width="15" height="3" rx="1.5"/>
+      </svg>
+      blank notepad
+    </a>
+    <button id="theme-toggle" class="icon-btn" type="button" aria-label="Toggle dark/light theme" title="Toggle theme">◐</button>
+  </div>
+</header>
+
+<!-- nav:start -->
+<nav class="toolbar" aria-label="Tools">
+  <details class="tb-menu">
+    <summary class="tb-trigger" aria-label="All 4 pages">
+      <span class="tb-glyph" aria-hidden="true">&#9636;</span>
+      <span class="tb-label">All 4<span class="tb-label-long"> pages</span></span>
+    </summary>
+    <div class="tb-sheet is-flat">
+      <div class="tb-sheet-cols">
+        <ul>
+          <li><a href="/">Blank Notepad</a></li>
+          <li><a href="/about.html">About Blank Notepad</a></li>
+          <li><a href="/privacy.html">Privacy Policy</a></li>
+          <li><a href="/terms.html">Terms of Use</a></li>
+        </ul>
+      </div>
+    </div>
+  </details>
+  <div class="tb-scrim"></div>
+  <ul class="tb-rail">
+    <li><a href="/">Notepad</a></li>
+    <li><a href="/about.html">About</a></li>
+    <li><a href="/privacy.html">Privacy</a></li>
+    <li><a href="/terms.html">Terms</a></li>
+  </ul>
+</nav>
+<!-- nav:end -->
+
+<main id="main" class="container-narrow" style="text-align:center;">
   <div style="font-size:48px;line-height:1;margin-bottom:8px;">📝</div>
   <h1>Page not found</h1>
   <p>This page has been torn out of the notebook.</p>
   <p><a href="/">Back to your notes</a></p>
 </main>
+
+<footer class="site-footer">
+    <nav class="peer-sites" aria-label="Related tools">
+      <span class="peer-sites-label">Related tools</span>
+      <ul>
+        <li><a href="https://drawlots.net/">Spinners, dice and random pickers</a> <span class="peer-domain">drawlots.net</span></li>
+        <li><a href="https://clocklab.net/">Timers, stopwatch and world clock</a> <span class="peer-domain">clocklab.net</span></li>
+        <li><a href="https://paperprintouts.com/">Printable graph, lined and staff paper</a> <span class="peer-domain">paperprintouts.com</span></li>
+        <li><a href="https://textkitpro.com/">Text cleanup, conversion and comparison</a> <span class="peer-domain">textkitpro.com</span></li>
+      </ul>
+    </nav>
+  <div class="footer-inner">
+    <div>© <span id="year"></span> Blank Notepad</div>
+    <div class="footer-links">
+      <a href="/about.html">About</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+    </div>
+  </div>
+</footer>
+
 <a href="https://erabb.it" class="erabbit-mark" aria-label="erabb.it"><img src="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐇</text></svg>" width="10" height="10" alt=""></a>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+var tb = document.getElementById("theme-toggle");
+tb.addEventListener("click", function () {
+  var current = document.documentElement.getAttribute("data-theme");
+  if (!current) current = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  var next = current === "dark" ? "light" : "dark";
+  document.documentElement.setAttribute("data-theme", next);
+  try { localStorage.setItem("notepadly-theme", next); } catch (e) {}
+});
+</script>
 </body>
 </html>

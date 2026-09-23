@@ -13,16 +13,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="manifest" href="/manifest.webmanifest">
 <script defer src="/assets/js/register-sw.js"></script>
+<script defer src="/assets/js/nav.js"></script>
 <title>Privacy Policy — Blank Notepad</title>
 <meta name="description" content="Blank Notepad's privacy policy: your notes are stored only in your browser's local storage and are never sent to any server.">
 <link rel="canonical" href="https://blanknotepad.com/privacy.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Privacy Policy — Blank Notepad">
+<meta property="og:description" content="Blank Notepad's privacy policy: your notes are stored only in your browser's local storage and are never sent to any server.">
+<meta property="og:url" content="https://blanknotepad.com/privacy.html">
 <meta property="og:image" content="https://blanknotepad.com/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Privacy Policy — Blank Notepad">
+<meta name="twitter:description" content="Blank Notepad's privacy policy: your notes are stored only in your browser's local storage and are never sent to any server.">
 <meta name="theme-color" content="#f1e8d3">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/assets/css/styles.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://blanknotepad.com/"},{"@type":"ListItem","position":2,"name":"Privacy Policy","item":"https://blanknotepad.com/privacy.html"}]}</script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7560786263587509" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -44,7 +52,33 @@
   </div>
 </header>
 
-<!-- nav:start --><!-- nav:end -->
+<!-- nav:start -->
+<nav class="toolbar" aria-label="Tools">
+  <details class="tb-menu">
+    <summary class="tb-trigger" aria-label="All 4 pages">
+      <span class="tb-glyph" aria-hidden="true">&#9636;</span>
+      <span class="tb-label">All 4<span class="tb-label-long"> pages</span></span>
+    </summary>
+    <div class="tb-sheet is-flat">
+      <div class="tb-sheet-cols">
+        <ul>
+          <li><a href="/">Blank Notepad</a></li>
+          <li><a href="/about.html">About Blank Notepad</a></li>
+          <li><a href="/privacy.html" aria-current="page">Privacy Policy</a></li>
+          <li><a href="/terms.html">Terms of Use</a></li>
+        </ul>
+      </div>
+    </div>
+  </details>
+  <div class="tb-scrim"></div>
+  <ul class="tb-rail">
+    <li><a href="/">Notepad</a></li>
+    <li><a href="/about.html">About</a></li>
+    <li><a href="/privacy.html" aria-current="page">Privacy</a></li>
+    <li><a href="/terms.html">Terms</a></li>
+  </ul>
+</nav>
+<!-- nav:end -->
 
 <main id="main">
   <div class="page-hero">
@@ -80,6 +114,15 @@
 </main>
 
 <footer class="site-footer">
+    <nav class="peer-sites" aria-label="Related tools">
+      <span class="peer-sites-label">Related tools</span>
+      <ul>
+        <li><a href="https://drawlots.net/">Spinners, dice and random pickers</a> <span class="peer-domain">drawlots.net</span></li>
+        <li><a href="https://clocklab.net/">Timers, stopwatch and world clock</a> <span class="peer-domain">clocklab.net</span></li>
+        <li><a href="https://paperprintouts.com/">Printable graph, lined and staff paper</a> <span class="peer-domain">paperprintouts.com</span></li>
+        <li><a href="https://textkitpro.com/">Text cleanup, conversion and comparison</a> <span class="peer-domain">textkitpro.com</span></li>
+      </ul>
+    </nav>
   <div class="footer-inner">
     <div>© <span id="year"></span> Blank Notepad</div>
     <div class="footer-links">
