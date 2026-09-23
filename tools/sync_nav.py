@@ -13,6 +13,7 @@ differs.
 Each managed region is delimited by a pair of HTML comments:
 
     <!-- nav:start --> ... <!-- nav:end -->
+    <!-- peers:start --> ... <!-- peers:end -->
 
 so a page can opt into any subset; a file with no markers is left alone. The
 indentation of the start marker is applied to every rendered line, so a region
@@ -61,6 +62,15 @@ def canon(url):
 
 def page_url(path):
     return canon("/" + path.relative_to(ROOT).as_posix())
+
+
+def ncr(text):
+    """Every character of `text` as a decimal numeric character reference.
+
+    Used for the contact address and nothing else. It is an obfuscation, not an
+    escape: `esc()` is still what makes untrusted text safe in markup.
+    """
+    return "".join("&#%d;" % ord(c) for c in text)
 
 
 def esc(text):
@@ -205,10 +215,45 @@ def render_footernav(url):
     return "\n".join(out)
 
 
+def render_peers(url):
+    """The footer band: the sibling sites, then one route to a person.
+
+    Both halves belong to the same region because both are footer-level
+    site-to-person links and both were copied by hand into every page before
+    this. One renderer owns them, so the block cannot drift between pages and
+    `--check` catches a page that falls behind.
+
+    The address is encoded by `ncr()`, not by `esc()`. Every character of the
+    href and of the link text becomes a decimal numeric character reference, so
+    neither "@" nor "mailto:hello" appears in the bytes a scraper downloads.
+    The HTML parser decodes them while it parses, so the anchor keeps a real
+    mailto: URL, its place in the tab order, and a plain address for a screen
+    reader. Running `esc()` over the result would turn every "&" into "&amp;"
+    and put a wall of literal entity text on the page.
+    """
+    peers = getattr(D, "PEERS", None)
+    address = getattr(D, "CONTACT_ADDRESS", "")
+    out = []
+    if peers:
+        out += ['<nav class="peer-sites" aria-label="Related tools">',
+                '  <span class="peer-sites-label">Related tools</span>',
+                "  <ul>"]
+        for href, text, domain in peers:
+            out.append('    <li><a href="%s">%s</a> <span class="peer-domain">%s</span></li>'
+                       % (esc(href), esc(text), esc(domain)))
+        out += ["  </ul>", "</nav>"]
+    if address:
+        out.append('<p class="footer-contact">%s <a href="%s">%s</a></p>'
+                   % (esc(getattr(D, "CONTACT_TEXT", "Questions?")),
+                      ncr("mailto:" + address), ncr(address)))
+    return "\n".join(out)
+
+
 RENDERERS = {
     "nav": render_nav,
     "sizechips": render_sizechips,
     "footernav": render_footernav,
+    "peers": render_peers,
 }
 
 
