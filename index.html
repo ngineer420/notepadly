@@ -13,6 +13,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="manifest" href="/manifest.webmanifest">
 <script defer src="/assets/js/register-sw.js"></script>
+<script defer src="/assets/js/nav.js"></script>
 <title>Blank Notepad — Distraction-Free Online Notepad</title>
 <meta name="description" content="A distraction-free online notepad that autosaves to your browser as you type. Switch to Markdown for a live preview, keep multiple notes, and download as .txt or .md. Nothing is ever uploaded — it all stays on your device and works offline.">
 <link rel="canonical" href="https://blanknotepad.com/">
@@ -44,44 +45,7 @@
   "description": "A distraction-free, 100% client-side online notepad that autosaves to localStorage as you type, with a Markdown mode with live preview, multiple named notes, and .txt/.md export. Nothing is ever uploaded to a server."
 }
 </script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Does Blank Notepad save my notes automatically?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every change you make is written to your browser's localStorage within a fraction of a second, and again immediately when you switch tabs, switch notes, or close the page. Reopen Blank Notepad later — even offline — and your notes are exactly as you left them." }
-    },
-    {
-      "@type": "Question",
-      "name": "Is anything I type sent to a server?",
-      "acceptedAnswer": { "@type": "Answer", "text": "No. Blank Notepad has no backend, no account, and no sync service. All of the code runs in your browser, and your notes are stored only in that browser's local storage on your device. Nobody, including us, can read them." }
-    },
-    {
-      "@type": "Question",
-      "name": "What happens if I clear my browser data?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Local storage is tied to your browser profile on this device, so clearing site data, browsing in a private/incognito window, or switching browsers or devices will not carry your notes over. Download anything important as .txt or .md if you need a backup or want to move it elsewhere." }
-    },
-    {
-      "@type": "Question",
-      "name": "How does Markdown mode work?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Turn on Markdown from the toolbar and a live preview appears alongside your text. It supports headings, bold and italic, links, inline code and code blocks, blockquotes, lists, and horizontal rules — rendered entirely by a small built-in renderer, with no external library or network request involved." }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I keep more than one note?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Use the + tab to start a new note, double-click any tab to rename it, and click the × to delete one. Each note remembers its own content and whether Markdown mode is on." }
-    },
-    {
-      "@type": "Question",
-      "name": "Does Blank Notepad work offline?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Once the page has loaded once, it keeps working without a connection — there are no external scripts, fonts, or services it depends on at runtime." }
-    }
-  ]
-}
-</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does Blank Notepad save my notes automatically?","acceptedAnswer":{"@type":"Answer","text":"Yes. Every change is written to your browser's local storage within a fraction of a second, and again immediately when you switch tabs, switch notes, or close the page. Come back later — even offline — and your notes are exactly as you left them."}},{"@type":"Question","name":"Is anything I type sent to a server?","acceptedAnswer":{"@type":"Answer","text":"No. There is no backend, no account, and no sync service. Everything runs in your browser, and your notes stay in that browser's local storage on your device."}},{"@type":"Question","name":"What happens if I clear my browser data?","acceptedAnswer":{"@type":"Answer","text":"Local storage is tied to your browser profile on this device, so clearing site data, using a private/incognito window, or switching browsers or devices won't carry your notes over. Download anything important as .txt or .md if you need a backup."}},{"@type":"Question","name":"Can I keep more than one note?","acceptedAnswer":{"@type":"Answer","text":"Yes — use the + tab to start a new one, double-click any tab to rename it, and use the × to delete one. Each note remembers its own content and whether Markdown mode is on."}},{"@type":"Question","name":"Does it work offline?","acceptedAnswer":{"@type":"Answer","text":"Once the page has loaded, yes — there's nothing external it depends on at runtime, no fonts, scripts, or services to fetch."}}]}</script>
 
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7560786263587509" crossorigin="anonymous"></script>
 </head>
@@ -104,7 +68,33 @@
   </div>
 </header>
 
-<!-- nav:start --><!-- nav:end -->
+<!-- nav:start -->
+<nav class="toolbar" aria-label="Tools">
+  <details class="tb-menu">
+    <summary class="tb-trigger" aria-label="All 4 pages">
+      <span class="tb-glyph" aria-hidden="true">&#9636;</span>
+      <span class="tb-label">All 4<span class="tb-label-long"> pages</span></span>
+    </summary>
+    <div class="tb-sheet is-flat">
+      <div class="tb-sheet-cols">
+        <ul>
+          <li><a href="/" aria-current="page">Blank Notepad</a></li>
+          <li><a href="/about.html">About Blank Notepad</a></li>
+          <li><a href="/privacy.html">Privacy Policy</a></li>
+          <li><a href="/terms.html">Terms of Use</a></li>
+        </ul>
+      </div>
+    </div>
+  </details>
+  <div class="tb-scrim"></div>
+  <ul class="tb-rail">
+    <li><a href="/" aria-current="page">Notepad</a></li>
+    <li><a href="/about.html">About</a></li>
+    <li><a href="/privacy.html">Privacy</a></li>
+    <li><a href="/terms.html">Terms</a></li>
+  </ul>
+</nav>
+<!-- nav:end -->
 
 <main id="main">
   <div class="editor-shell">
@@ -118,14 +108,14 @@
     </div>
 
     <div class="sheet">
-      <div class="toolbar">
-        <div class="toolbar-group">
+      <div class="editor-toolbar">
+        <div class="editor-toolbar-group">
           <button type="button" class="tool-btn" id="markdown-toggle" aria-pressed="false" title="Toggle Markdown mode with live preview">Markdown</button>
-          <span class="toolbar-sep" aria-hidden="true"></span>
+          <span class="editor-toolbar-sep" aria-hidden="true"></span>
           <button type="button" class="tool-btn" id="download-txt" title="Download this note as .txt">⤓ .txt</button>
           <button type="button" class="tool-btn" id="download-md" title="Download this note as .md">⤓ .md</button>
         </div>
-        <div class="toolbar-group">
+        <div class="editor-toolbar-group">
           <button type="button" class="tool-btn danger" id="clear-btn" title="Clear this note">Clear</button>
         </div>
       </div>
@@ -198,6 +188,15 @@
 </main>
 
 <footer class="site-footer">
+    <nav class="peer-sites" aria-label="Related tools">
+      <span class="peer-sites-label">Related tools</span>
+      <ul>
+        <li><a href="https://drawlots.net/">Spinners, dice and random pickers</a> <span class="peer-domain">drawlots.net</span></li>
+        <li><a href="https://clocklab.net/">Timers, stopwatch and world clock</a> <span class="peer-domain">clocklab.net</span></li>
+        <li><a href="https://paperprintouts.com/">Printable graph, lined and staff paper</a> <span class="peer-domain">paperprintouts.com</span></li>
+        <li><a href="https://textkitpro.com/">Text cleanup, conversion and comparison</a> <span class="peer-domain">textkitpro.com</span></li>
+      </ul>
+    </nav>
   <div class="footer-inner">
     <div>© <span id="year"></span> Blank Notepad</div>
     <div class="footer-links">
