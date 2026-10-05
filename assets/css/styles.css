@@ -762,6 +762,29 @@ main { flex: 1; }
   .peer-domain { margin: -6px 0 6px; }
 }
 
+/* ---- contact: one route to a person, on every page ----
+   The last band of the footer, under the related-tools rows and above the
+   copyright line. It takes the footer's own 13px muted type and the same
+   container as .peer-sites, so the two read as one block rather than as two
+   bolted-on strips. The address is the only interactive word in the sentence,
+   so it is the only one that carries the link colour, and it gets a 34px
+   minimum height because a mail address on a phone is a tap target. */
+.footer-contact {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 20px 6px;
+  font-size: 13px;
+  color: var(--ink-faint);
+}
+.footer-contact a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  color: var(--ink-soft);
+  text-decoration: none;
+}
+.footer-contact a:hover { color: var(--accent); text-decoration: underline; }
+
 /* Last element on the page, flush to the corner, and not a link that invites
    a click — the pointer stays an arrow. */
 .erabbit-mark { display: block; width: 10px; margin: 0 0 0 auto; line-height: 0; cursor: default; }
