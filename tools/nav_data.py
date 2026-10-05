@@ -55,5 +55,46 @@ HUBS = []
 # No tier-2 family here.
 FOOTER = []
 
+# ---------------------------------------------------------------------------
+# The footer's peers region: the sibling sites, then one route to a person.
+#
+# These were hand-copied into the footer of all five pages, which is how five
+# copies of a block drift. `sync_nav.py` renders the region now, so the block
+# has one owner and `--check` catches a page that falls behind.
+#
+# Link text is each site's own meta description, so the promise on the link is
+# the promise on the page it lands on.
+PEERS = [
+    ("https://textkitpro.com/", "Text cleanup, conversion and comparison", "textkitpro.com"),
+]
+
+# The contact address, in plain text. `sync_nav.py` encodes every character of
+# the href and the link text as a decimal numeric character reference before it
+# writes them, so neither "@" nor "mailto:hello" appears in the bytes a scraper
+# downloads. The HTML parser decodes them while it parses, so the anchor keeps
+# a real mailto: URL, its place in the tab order, and a plain address for a
+# screen reader. No JavaScript is involved.
+#
+# The sentence names the notepad, not "a tool". This site is one notepad and
+# has no tool collection, so "a problem with a tool" would ask about something
+# that is not here.
+CONTACT_ADDRESS = "hello@goodbotbad.bot"
+CONTACT_TEXT = "Questions or a problem with the notepad?"
+
+# ---------------------------------------------------------------------------
+# Sitemap. One row per indexed page: the path, how often it changes, and its
+# priority. `<lastmod>` is NOT here — `build_sitemap.py` computes it from git,
+# because a date written by hand is a date nobody updates.
+#
+# 404.html is absent on purpose. A crawler must not be invited to index it.
+SITE = "https://blanknotepad.com"
+
+SITEMAP = [
+    ("/", "weekly", "1.0"),
+    ("/about.html", "monthly", "0.5"),
+    ("/privacy.html", "yearly", "0.2"),
+    ("/terms.html", "yearly", "0.2"),
+]
+
 # The marker pairs are already in every page, so --migrate has nothing to do.
 MIGRATE = []
